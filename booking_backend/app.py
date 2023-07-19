@@ -2,10 +2,11 @@ from flask import Flask, jsonify, request
 from bson.objectid import ObjectId
 from pymongo import MongoClient
 from dotenv import load_dotenv
+from flask_cors import CORS
 import os
 
 app = Flask(__name__)
-
+CORS(app)
 # Load environment variables from .env file
 load_dotenv()
 
@@ -49,6 +50,20 @@ def create_user():
     result = db.users.insert_one(user_data)
     return jsonify({"message": "User created successfully", "user_id": str(result.inserted_id)}), 201
 
+@app.route('/login_user', methods=['POST'])
+def login():
+    user_data = request.get_json()
+    email = user_data.get('email')
+    password = user_data.get('password')
+
+    if not email or not password:
+        return jsonify({'message': 'Email and password are required!'})
+
+    user = db.users.find_one({'email': email, 'password': password})
+    if not user:
+        return jsonify({'message': 'Invalid credentials!'})
+
+    return jsonify({'message': 'Login successful!', "user_id": str(user['_id'])})
 
 # Update a user by ID
 @app.route('/users/<string:user_id>', methods=['PUT'])

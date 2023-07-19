@@ -1,0 +1,102 @@
+<div class="user-registration-form">
+    <h2>User Registration</h2>
+  
+    <!-- Signup form -->
+    <form *ngIf="showSignupForm && !showUpdateForm" (ngSubmit)="register()">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" class="form-control" id="username" [(ngModel)]="user.username" name="username" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" [(ngModel)]="user.password" name="password" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" [(ngModel)]="user.email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="membership">Membership Type</label>
+        <select class="form-control" id="membership" [(ngModel)]="user.membership" name="membership" required>
+          <option value="Regular">Regular</option>
+          <option value="Premium">Premium</option>
+          <option value="VIP">VIP</option>
+        </select>
+      </div>
+      <div class="form-group genderinput">
+        <label for="gender">Gender :</label>
+        <div>
+          <label>
+            <input type="radio" name="gender" value="Male" [(ngModel)]="user.gender" required> Male
+          </label>
+        </div>
+        <div>
+          <label>
+            <input type="radio" name="gender" value="Female" [(ngModel)]="user.gender" required> Female
+          </label>
+        </div>
+        <div>
+          <label>
+            <input type="radio" name="gender" value="Other" [(ngModel)]="user.gender" required> Other
+          </label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="bio">Bio</label>
+        <textarea class="form-control" id="bio" [(ngModel)]="user.bio" name="bio"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="dateOfBirth">Date of Birth</label>
+        <input type="date" class="form-control" id="dateOfBirth" [(ngModel)]="user.dateOfBirth" name="dateOfBirth" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Register</button>
+      <p>Already have an account? <a (click)="toggleForm()">Login</a></p>
+    </form>
+  
+    <!-- Login form -->
+    <form *ngIf="!showSignupForm && !showUpdateForm" (ngSubmit)="loginsubmit()">
+      <div class="form-group">
+        <label for="loginEmail">Email</label>
+        <input type="email" class="form-control" id="loginEmail" [(ngModel)]="login.email" name="loginEmail" required>
+      </div>
+      <div class="form-group">
+        <label for="loginPassword">Password</label>
+        <input type="password" class="form-control" id="loginPassword" [(ngModel)]="login.password" name="loginPassword" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Login</button>
+      <p>Don't have an account? <a (click)="toggleForm()">Signup</a></p>
+    </form>
+  </div>
+  
+  <div *ngIf="showUpdateForm" class="user-form">
+    <!-- Update profile form -->
+    <h3>Update Profile</h3>
+    <form (ngSubmit)="updateProfile()">
+      <div>
+        <label>Username:</label>
+        <input type="text" [(ngModel)]="user.username" name="username" required>
+      </div>
+      <div>
+        <label>Membership Type:</label>
+        <select [(ngModel)]="user.membership" name="membership" required>
+          <option value="Regular">Regular</option>
+          <option value="Premium">Premium</option>
+          <option value="VIP">VIP</option>
+        </select>
+      </div>
+      <div>
+        <label>Gender:</label>
+        <input type="text" [(ngModel)]="user.gender" name="gender" required>
+      </div>
+      <div>
+        <label>Bio:</label>
+        <textarea [(ngModel)]="user.bio" name="bio"></textarea>
+      </div>
+      <div>
+        <label>Date of Birth:</label>
+        <input type="date" [(ngModel)]="user.dateOfBirth" name="dateOfBirth" required>
+      </div>
+      <button type="submit">Update Profile</button>
+    </form>
+    <button (click)="showUpdateForm = false">Cancel</button>
+  </div>
