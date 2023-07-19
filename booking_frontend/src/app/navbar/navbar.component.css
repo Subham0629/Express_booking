@@ -1,0 +1,19 @@
+.navbar {
+    padding: 0.5rem 1rem;
+  }
+  
+  .navbar-brand {
+    font-weight: bold;
+  }
+  
+  .nav-link {
+    font-weight: bold;
+    color: #212529;
+  }
+  
+  .btn-primary {
+    margin-left: 10px;
+    background-color: #fb724c;
+    border-color: #fb724c;
+  }
+  
