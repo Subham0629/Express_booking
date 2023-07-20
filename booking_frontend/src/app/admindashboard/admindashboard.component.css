@@ -1,0 +1,21 @@
+/* admin-dashboard.component.css */
+
+.movies-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.movie {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px;
+  width: 200px;
+  text-align: center;
+}
+
+.movie img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}

@@ -1,0 +1,21 @@
+<div class="container">
+<h2>{{ movie?.title }}</h2>
+<img [src]="movie?.imageurl" class="card-img-top" alt="{{ movie.title }}">
+<p>City: {{ movie?.city }}</p>
+<p>Language: {{ movie?.language }}</p>
+
+<!-- Input for timings -->
+<label>Timings:</label>
+<input type="text" [(ngModel)]="timings" name="timings" required>
+
+<!-- Select tag for category -->
+<label>Category:</label>
+<select [(ngModel)]="category" name="category" required>
+  <option value="Matinee">Matinee</option>
+  <option value="Evening">Evening</option>
+  <option value="Morning">Morning</option>
+  <option value="Afternoon">Afternoon</option>
+</select>
+
+<button class="btn btn-primary" (click)="addShow()">Add Show</button>
+</div>

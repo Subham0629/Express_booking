@@ -1,0 +1,25 @@
+<div class="admin-dashboard-container">
+  <h2>Welcome to Admin Dashboard!</h2>
+  <button class="btn btn-primary" (click)="navigateToAddMovieForm()">Add New Movie</button>
+  <button class="btn btn-primary" (click)="fetchAllMovies()">Fetch All Movies</button>
+
+<!-- Display all movies in divs -->
+<div class="row" *ngIf="moviesFetched">
+  <div class="col-md-4 mb-4" *ngFor="let movie of movies">
+    <div class="card">
+      <img [src]="movie.imageurl" class="card-img-top" alt="{{ movie.title }}">
+      <div class="card-body">
+        <h5 class="card-title">{{ movie.title }}</h5>
+        <p class="card-text">City: {{ movie.city }}</p>
+        <p class="card-text">Language: {{ movie.language }}</p>
+        <button class="btn btn-success" [routerLink]="['/admin/add-show', movie._id]">Add to Shows</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+

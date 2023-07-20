@@ -1,0 +1,14 @@
+<div class="movie-grid">
+    <div *ngFor="let show of shows" class="show-box">
+      <img class="movie-image" src="{{ show.movie_details.imageurl }}" alt="{{ show.movie_details.title }}" height="200">
+      <h3>{{ show.movie_details.title }}</h3>
+      <p>City: {{ show.movie_details.city }}</p>
+      <p>Language: {{ show.movie_details.language }}</p>
+      <p>Timings: {{ show.timings }}</p>
+      <p>Category: {{ show.category }}</p>
+      <button class="btn btn-primary" >Book Now</button>
+      <!-- Display other movie details here -->
+    </div>
+  </div>
+  
+  

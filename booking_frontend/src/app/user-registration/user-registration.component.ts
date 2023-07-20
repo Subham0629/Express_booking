@@ -38,6 +38,7 @@ export class UserRegistrationComponent {
     this.http.post('http://localhost:5000/users', this.user)
       .subscribe(
         (response: any) => {
+          alert("Registration successful")
           console.log('Registration successful:', response);
           // Reset the form
           this.user = {

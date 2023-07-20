@@ -1,0 +1,50 @@
+/* movie-form.component.css */
+
+/* Center the container */
+
+  /* Style the box-like container */
+  .container {
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 500px; /* Adjust this value based on your needs */
+    width: 100%;
+    text-align: center;
+  }
+  .container img{
+    width: 50%;
+    border-radius: 5px;
+    margin-bottom: 5px;
+  }
+  
+  /* Style the form elements */
+  .container label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .container input,
+  .container select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  /* Style the submit button */
+  .container button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  .container button:hover {
+    background-color: #0056b3;
+  }
+  
