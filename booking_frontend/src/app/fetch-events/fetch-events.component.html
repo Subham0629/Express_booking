@@ -1,0 +1,13 @@
+
+  <div class="movie-grid">
+    <div *ngFor="let event of events" class="show-box">
+      <img class="movie-image" src="{{ event.image }}" alt="{{ event.title }}" height="200">
+      <h6>{{ event.title }}</h6>
+      <p>City: {{ event.city }}</p>
+      <p>Price: {{ event.price }}</p>
+      <p>Date: {{ event.date }}</p>
+      <button class="btn btn-primary" (click)="deleteEvent(event._id)">Delete</button>
+      
+    </div>
+  </div>
+  

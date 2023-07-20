@@ -9,9 +9,9 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="/movies">Movies</a>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link" routerLink="/shows">Shows</a>
-        </li>
+        </li> -->
         <li class="nav-item">
           <a class="nav-link" routerLink="/events">Events</a>
         </li>
@@ -27,7 +27,7 @@
           <button class="btn btn-primary" *ngIf="!isLoggedIn" routerLink="/admin">Admin Login</button>
         </li>
         <li class="nav-item">
-          <button class="btn btn-primary" (click)="showRegistrationForm = true" *ngIf="!isLoggedIn ">User Login</button>
+          <button class="btn btn-primary" routerLink="/user-login"  *ngIf="!isLoggedIn ">User Login</button>
         </li>
       </ul>
     </div>

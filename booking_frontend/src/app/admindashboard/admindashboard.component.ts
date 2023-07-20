@@ -20,6 +20,9 @@ export class AdmindashboardComponent implements OnInit {
   navigateToAddMovieForm() {
     this.router.navigate(['/admin/movie-form']);
   }
+  navigateToFetchParticipants() {
+    this.router.navigate(['/admin/fetch-participants']);
+  }
   
 
   // Method to fetch all movies

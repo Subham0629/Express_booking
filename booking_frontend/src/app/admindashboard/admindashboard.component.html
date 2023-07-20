@@ -2,11 +2,14 @@
   <h2>Welcome to Admin Dashboard!</h2>
   <button class="btn btn-primary" (click)="navigateToAddMovieForm()">Add New Movie</button>
   <button class="btn btn-primary" (click)="fetchAllMovies()">Fetch All Movies</button>
+  <button class="btn btn-primary" [routerLink]="['/admin/add-event']">Add New Event</button>
+  <button class="btn btn-primary" [routerLink]="['/admin/fetch-events']">Fetch All Events</button>
+  <button class="btn btn-primary" (click)="navigateToFetchParticipants()">Fetch All Participants</button> 
 
 <!-- Display all movies in divs -->
 <div class="row" *ngIf="moviesFetched">
-  <div class="col-md-4 mb-4" *ngFor="let movie of movies">
-    <div class="card">
+  <div class="col-md-4 mb-4" *ngFor="let movie of movies" class="movies-container" >
+    <div class="movie">
       <img [src]="movie.imageurl" class="card-img-top" alt="{{ movie.title }}">
       <div class="card-body">
         <h5 class="card-title">{{ movie.title }}</h5>

@@ -203,5 +203,133 @@ def get_show(show_id):
         return jsonify({"message": "Show not found"}), 404
 
 
+# //*******************************Events******************************//       
+
+
+@app.route('/events', methods=['POST'])
+def create_event():
+    data = request.json
+    title = data.get('title')
+    image = data.get('image')
+    city = data.get('city')
+    price = data.get('price')
+    date = data.get('date')
+
+    event_data = {
+        "title": title,
+        "image": image,
+        "city": city,
+        "price": price,
+        "date": date
+    }
+    event_id = db.events.insert_one(event_data).inserted_id
+
+    return jsonify({"message": "Event created successfully", "event_id": str(event_id)}), 201
+
+@app.route('/events', methods=['GET'])
+def get_all_events():
+    events = list(db.events.find())
+    for event in events:
+        event['_id'] = str(event['_id'])
+    return jsonify(events), 200
+
+@app.route('/events/<string:event_id>', methods=['GET'])
+def get_event(event_id):
+    event = db.events.find_one({"_id": ObjectId(event_id)})
+    if event:
+        event['_id'] = str(event['_id'])
+        return jsonify(event), 200
+    else:
+        return jsonify({"message": "Event not found"}), 404
+
+@app.route('/events/<string:event_id>', methods=['PUT'])
+def update_event(event_id):
+    data = request.json
+    updated_fields = {}
+
+    title = data.get('title')
+    if title:
+        updated_fields['title'] = title
+
+    image = data.get('image')
+    if image:
+        updated_fields['image'] = image
+
+    city = data.get('city')
+    if city:
+        updated_fields['city'] = city
+
+    price = data.get('price')
+    if price:
+        updated_fields['price'] = price
+
+    date = data.get('date')
+    if date:
+        updated_fields['date'] = date
+
+    if not updated_fields:
+        return jsonify({"message": "No update data provided"}), 400
+
+    result = db.events.update_one({"_id": ObjectId(event_id)}, {"$set": updated_fields})
+
+    if result.modified_count == 1:
+        return jsonify({"message": "Event updated successfully"}), 200
+    else:
+        return jsonify({"message": "Event not found"}), 404
+
+
+@app.route('/events/<string:event_id>', methods=['DELETE'])
+def delete_event(event_id):
+    result = db.events.delete_one({"_id": ObjectId(event_id)})
+
+    if result.deleted_count == 1:
+        return jsonify({"message": "Event deleted successfully"}), 200
+    else:
+        return jsonify({"message": "Event not found"}), 404
+
+
+# //**********************Participants******************//        
+
+@app.route('/participants', methods=['POST'])
+def add_participant():
+    data = request.json
+    event_id = data.get('event_id')
+    user_id = data.get('user_id')
+
+    # Check if the event_id exists in the 'events' collection
+    event = db.events.find_one({"_id": ObjectId(event_id)})
+    if not event:
+        return jsonify({"message": "Event not found"}), 404
+
+    # Check if the event_id is already present in the 'participants' collection
+    participant = db.participants.find_one({"event_id": event_id})
+    if participant:
+        # If the user_id is not already in the user_ids array, add it
+        if user_id not in participant['user_ids']:
+            result = db.participants.update_one({"event_id": event_id}, {"$addToSet": {"user_ids": user_id}})
+        else:
+            return jsonify({"message": "User is already a participant in the event"}), 200
+    else:
+        # If the event_id is not present in the 'participants' collection, create a new entry
+        participant_data = {
+            "event_id": event_id,
+            "user_ids": [user_id]
+        }
+        result = db.participants.insert_one(participant_data)
+
+    if result.acknowledged:
+        return jsonify({"message": "Participant added successfully"}), 201
+    else:
+        return jsonify({"message": "Failed to add participant"}), 500
+
+
+@app.route('/participants', methods=['GET'])
+def get_all_participants():
+    participants = list(db.participants.find())
+    for participant in participants:
+        participant['_id'] = str(participant['_id'])
+    return jsonify(participants), 200
+
+
 if __name__ == '__main__':
     app.run(debug=True)

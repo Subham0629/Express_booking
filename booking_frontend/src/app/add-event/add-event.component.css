@@ -1,0 +1,56 @@
+/* add-event.component.css */
+
+/* Container for the Add Event form */
+.add-event-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    margin-top: 30px;
+  }
+  
+  /* Form fields and labels */
+  .add-event-container label,
+  .add-event-container input,
+  .add-event-container select,
+  .add-event-container button {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+  
+  .add-event-container label {
+    font-weight: bold;
+  }
+  
+  .add-event-container input,
+  .add-event-container select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  /* Submit button */
+  .add-event-container button {
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    
+  }
+  
+  .add-event-container button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Error message */
+  .error-message {
+    color: red;
+    font-size: 14px;
+  }
+  

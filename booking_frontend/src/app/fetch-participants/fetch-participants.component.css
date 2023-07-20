@@ -1,0 +1,39 @@
+/* fetch-participants.component.css */
+
+.events-with-participants-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .event-container {
+    width: 300px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+  }
+  
+  .event-container h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .event-image {
+    width: 100%;
+    height: 200px; /* Set the height of the movie image to 200px */
+    border-radius: 8px 8px 0 0;
+    object-fit: cover;
+
+  }
+  
+  .event-container p {
+    font-size: 1rem;
+    margin-bottom: 5px;
+  }
+  
+  .event-container p:last-child {
+    margin-bottom: 15px;
+  }
+  
