@@ -17,6 +17,10 @@ import { CommonModule } from '@angular/common';
 import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
 import { AddShowComponent } from './add-show/add-show.component';
 import { MovieComponent } from './movie/movie.component';
+import { EventListComponent } from './event-list/event-list.component';
+import { AddEventComponent } from './add-event/add-event.component';
+import { FetchParticipantsComponent } from './fetch-participants/fetch-participants.component';
+import { FetchEventsComponent } from './fetch-events/fetch-events.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +32,11 @@ import { MovieComponent } from './movie/movie.component';
     MovieFormComponent,
     AdmindashboardComponent,
     AddShowComponent,
-    MovieComponent
+    MovieComponent,
+    EventListComponent,
+    AddEventComponent,
+    FetchParticipantsComponent,
+    FetchEventsComponent
   ],
   imports: [
     BrowserModule,

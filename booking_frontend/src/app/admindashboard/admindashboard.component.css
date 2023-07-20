@@ -1,5 +1,10 @@
 /* admin-dashboard.component.css */
-
+.admin-dashboard-container{
+  text-align: center;
+}
+.admin-dashboard-container .btn-primary{
+  margin-left: 10px;
+}
 .movies-container {
   display: flex;
   flex-wrap: wrap;
@@ -10,12 +15,14 @@
   border: 1px solid #ccc;
   padding: 10px;
   margin: 10px;
-  width: 200px;
+  width: 300px;
   text-align: center;
+  border-radius: 5px;
 }
 
 .movie img {
   max-width: 100%;
-  height: auto;
-  margin-bottom: 10px;
+  height: 200px;
+  margin-bottom: 5px;
+  object-fit: cover;
 }

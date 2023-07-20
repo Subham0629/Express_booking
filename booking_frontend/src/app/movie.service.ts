@@ -10,6 +10,7 @@ import { Observable } from 'rxjs';
 export class MovieService {
   private apiUrl = 'http://localhost:5000/movies';
   private showUrl = 'http://localhost:5000';
+  private eventUrl="http://localhost:5000/events";
 
   constructor(private http: HttpClient) {}
 
@@ -36,4 +37,29 @@ export class MovieService {
     const url = `${this.showUrl}/shows`;
     return this.http.get<any[]>(url);
   }
+
+  
+  getAllEvents(): Observable<any> {
+    return this.http.get<any>(this.eventUrl);
+  }
+  addParticipant(participantData: any): Observable<any> {
+    return this.http.post(`${this.showUrl}/participants`, participantData);
+  }
+
+  addEvent(eventData: any): Observable<any> {
+    return this.http.post(`${this.showUrl}/events`, eventData);
+  }
+  getAllParticipants(): Observable<any> {
+    return this.http.get<any>(`${this.showUrl}/participants`);
+  }
+
+  getEvent(eventId: string): Observable<any> {
+    const url = `${this.showUrl}/events/${eventId}`;
+    return this.http.get<any>(url);
+  }
+  deleteEvent(eventId: string): Observable<any> {
+    const url = `${this.showUrl}/events/${eventId}`;
+    return this.http.delete(url);
+  }
+ 
 }

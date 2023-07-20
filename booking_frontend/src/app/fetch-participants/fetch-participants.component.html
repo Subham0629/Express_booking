@@ -1,0 +1,12 @@
+<div class="events-with-participants-container">
+  <div *ngFor="let event of eventsWithParticipants" class="event-container">
+    
+    <img [src]="event.image" alt="{{ event.title }}" class="event-image">
+    <h2>{{ event.title }}</h2>
+    <p>City: {{ event.city }}</p>
+    <p>Price: {{ event.price }}</p>
+    <p>Date: {{ event.date }}</p>
+    <h5>Number of Participants: {{ event.participants[0].user_ids.length }}</h5>
+  </div>
+</div>
+
