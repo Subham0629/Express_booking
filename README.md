@@ -10,7 +10,7 @@ The purpose of this project is to provide users with a platform to browse and bo
 ## Video Walkthrough of the project
 
 ## Features
-List out the key features of your application.
+
 # Admin
 - Login, Logout
 - Add, Delete Movies
@@ -39,18 +39,25 @@ ng serve
 
 - User Registration
   ![Screenshot (854)](https://github.com/Subham0629/Express_booking/assets/112814727/f1cd8d51-3767-4cb7-bef2-5c50ba556d03)
+  
 - User Profile Update
   ![Screenshot (855)](https://github.com/Subham0629/Express_booking/assets/112814727/1499f400-86ce-4846-b72f-63ccea66b7ba)
+  
 - Movie Page
   ![Screenshot (856)](https://github.com/Subham0629/Express_booking/assets/112814727/058b6c82-fc37-4124-8769-7732c9392fcc)
+  
 - Event Booking Page
   ![Screenshot (857)](https://github.com/Subham0629/Express_booking/assets/112814727/582cac5f-4217-4077-9c41-64474d146288)
+  
 - User Listing
   ![Screenshot (858)](https://github.com/Subham0629/Express_booking/assets/112814727/be580785-1bec-47ed-a707-7973cbbde2a5)
+  
 - Event Participants
   ![Screenshot (860)](https://github.com/Subham0629/Express_booking/assets/112814727/fe4c0fc8-4ea3-4e26-b173-4491de1cbed8)
+  
 - Add Movie Form
   ![Screenshot (859)](https://github.com/Subham0629/Express_booking/assets/112814727/2199b004-469b-48fa-861c-a6506764e3fd)
+  
 - Add Event Form
   ![Screenshot (861)](https://github.com/Subham0629/Express_booking/assets/112814727/ad88104a-204f-4c3e-8f2b-07b0f40bff92)
 
