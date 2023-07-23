@@ -1,10 +1,11 @@
 <div class="admin-dashboard-container">
   <h2>Welcome to Admin Dashboard!</h2>
+  <button class="btn btn-primary"  [routerLink]="['/fetch-all-users']">Get Users</button>
   <button class="btn btn-primary" (click)="navigateToAddMovieForm()">Add New Movie</button>
-  <button class="btn btn-primary" (click)="fetchAllMovies()">Fetch All Movies</button>
+  <button class="btn btn-primary" (click)="fetchAllMovies()">Get Movies</button>
   <button class="btn btn-primary" [routerLink]="['/admin/add-event']">Add New Event</button>
-  <button class="btn btn-primary" [routerLink]="['/admin/fetch-events']">Fetch All Events</button>
-  <button class="btn btn-primary" (click)="navigateToFetchParticipants()">Fetch All Participants</button> 
+  <button class="btn btn-primary" [routerLink]="['/admin/fetch-events']">Get Events</button>
+  <button class="btn btn-primary" (click)="navigateToFetchParticipants()">Get Participants</button> 
 
 <!-- Display all movies in divs -->
 <div class="row" *ngIf="moviesFetched">
@@ -15,8 +16,10 @@
         <h5 class="card-title">{{ movie.title }}</h5>
         <p class="card-text">City: {{ movie.city }}</p>
         <p class="card-text">Language: {{ movie.language }}</p>
+        <div class="delmoviebutton">
         <button class="btn btn-success" [routerLink]="['/admin/add-show', movie._id]">Add to Shows</button>
-
+        <button class="btn btn-danger" (click)="deleteMovie(movie._id)">Delete Movie</button>
+      </div>
       </div>
     </div>
   </div>

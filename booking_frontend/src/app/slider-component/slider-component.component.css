@@ -1,0 +1,84 @@
+/* CSS for Slider Container */
+.slider-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+/* CSS for Slider */
+.slider {
+  display: flex;
+  transition: transform 0.3s ease;
+  margin-left: 70px;
+  flex-shrink: 0; /* Prevent images from being shrunk */
+}
+
+/* CSS for Slides */
+.slide {
+  min-width: 100%;
+  max-width: 100%; /* Ensure images do not exceed container width */
+}
+
+/* Optional: Add animation to slides */
+.slide {
+  animation: slide-in 0.5s ease;
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* CSS for Slide Navigation Buttons */
+.slider-nav {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.slider-nav button {
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  margin: 0 5px;
+  cursor: pointer;
+  outline: none;
+}
+
+/* Optional: Add hover effect to navigation buttons */
+.slider-nav button:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  /* Adjust margin-left for smaller screens */
+  .slider {
+    margin-left: 0;
+  }
+
+  /* Adjust max-width of the slider container for smaller screens */
+  .slider-container {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Adjust slide size for even smaller screens */
+  .slide {
+    min-width: 100%;
+  }
+
+  /* Adjust Slide Navigation Buttons position for smaller screens */
+  .slider-nav {
+    bottom: 10px;
+  }
+}

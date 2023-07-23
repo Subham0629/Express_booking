@@ -18,6 +18,9 @@ export class MovieService {
   getAllMovies(): Observable<any> {
     return this.http.get<any>(this.apiUrl);
   }
+  deleteMovie(movieId: string): Observable<any> {
+    return this.http.delete(`${this.showUrl}/movies/${movieId}`);
+  }
 
    // Method to fetch a single movie by ID
    getMovie(movieId: string): Observable<any> {
@@ -61,5 +64,16 @@ export class MovieService {
     const url = `${this.showUrl}/events/${eventId}`;
     return this.http.delete(url);
   }
+
+  getAllUsers(pageNumber: number, pageSize: number) {
+    return this.http.get<any>(`${this.showUrl}/users?page=${pageNumber}&per_page=${pageSize}`);
+  }
  
+  getFilteredUsers(membership: string): Observable<any> {
+    return this.http.get<any>(`${this.showUrl}/users/filter?membership=${membership}`);
+  }
+
+  deleteUser(userId: string) {
+    return this.http.delete(`${this.showUrl}/users/${userId}`);
+  }
 }

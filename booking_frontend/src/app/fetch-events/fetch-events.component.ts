@@ -18,7 +18,6 @@ export class FetchEventsComponent implements OnInit {
   fetchAllEvents(): void {
     this.movieservice.getAllEvents().subscribe(
       (events: any) => {
-        console.log('Fetched all events:', events);
         this.events = events; // Store fetched events in 'events' property
       },
       (error: any) => {

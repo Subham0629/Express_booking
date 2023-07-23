@@ -23,10 +23,17 @@ db = client["Express_booking"]
 # Get all users
 @app.route('/users', methods=['GET'])
 def get_users():
-    users = list(db.users.find())
+    page = int(request.args.get('page', 1))
+    per_page = int(request.args.get('per_page', 10))
+
+    users = list(db.users.find().skip((page - 1) * per_page).limit(per_page))
+    total_users = db.users.count_documents({})
+
     for user in users:
         user['_id'] = str(user['_id'])
-    return jsonify(users)
+
+    return jsonify(users=users, total_users=total_users)
+
 
 # Get a user by ID
 @app.route('/users/<string:user_id>', methods=['GET'])
@@ -85,7 +92,46 @@ def delete_user(user_id):
         return jsonify({"message": "User deleted successfully"})
     else:
         return jsonify({"message": "User not found"}), 404
+        
 
+# Route for filtering users based on criteria
+@app.route('/users/filter', methods=['GET'])
+def filter_users():
+    try:
+        # Get query parameters from the request
+        username = request.args.get('username')
+        email = request.args.get('email')
+        date_of_birth = request.args.get('date_of_birth')
+        gender = request.args.get('gender')
+        membership = request.args.get('membership')
+        user_status = request.args.get('user_status')
+
+        # Create a filter dictionary based on the provided query parameters
+        filter = {}
+        if username:
+            filter['username'] = username
+        if email:
+            filter['email'] = email
+        if date_of_birth:
+            filter['date_of_birth'] = date_of_birth
+        if gender:
+            filter['gender'] = gender
+        if membership:
+            filter['membership'] = membership
+        if user_status:
+            filter['user_status'] = user_status
+
+        # Use the filter dictionary to query the database for filtered users
+        filtered_users = list(db.users.find(filter))
+        for user in filtered_users:
+            user['_id'] = str(user['_id'])
+
+        # Convert the list of users to a JSON response
+        return jsonify(users=filtered_users)
+
+    except Exception as e:
+        print(e)
+        return jsonify(error='Internal server error'), 500
 
 # //********************Movies and show management****************//
 

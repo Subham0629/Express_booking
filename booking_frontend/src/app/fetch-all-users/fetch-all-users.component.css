@@ -1,0 +1,166 @@
+/* CSS for the container and table */
+.container {
+  margin-top: 20px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  padding: 20px;
+}
+
+h2 {
+  text-align: center;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: hwb(0 50% 44% / 0.5);
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+  /* Adjust font sizes and table layout for smaller screens */
+  th, td {
+    font-size: 14px;
+  }
+  
+  th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+  
+  /* Hide table headers on small screens */
+  th {
+    display: none;
+  }
+  
+  tbody tr {
+    display: block;
+    margin-bottom: 30px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  /* Adjust cell alignment on small screens */
+  tbody td {
+    display: block;
+    text-align:center;
+    width: 100%;
+  }
+  
+  tbody td:before {
+    content: attr(data-label);
+    font-weight: bold;
+    display: inline-block;
+    width: 120px;
+    margin-right: 10px;
+  }
+}
+  
+/* CSS for the filter container */
+.filter-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/* CSS for the label */
+.filter-container label {
+  font-size: 16px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+/* CSS for the select tag */
+.filter-container select {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+/* Styling for select when hovered */
+.filter-container select:hover {
+  border-color: #888;
+}
+
+/* Styling for select when focused */
+.filter-container select:focus {
+  border-color: #3498db;
+}
+
+/* Styling for select options */
+.filter-container select option {
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+/* Styling for select when an option is selected */
+.filter-container select option:checked {
+  background-color: #3498db;
+  color: #fff;
+}
+
+/* CSS for the pagination container */
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  
+}
+
+/* CSS for the pagination list */
+.pagination {
+  display: flex;
+  list-style: none;
+  padding: 0;
+}
+
+/* CSS for each pagination item */
+.page-item {
+  margin: 0 5px;
+}
+
+/* Styling for pagination links */
+.page-link {
+  padding: 8px 12px;
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+  color: #333;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Styling for active pagination link */
+.page-item.active .page-link {
+  background-color: #3498db;
+  border-color: #3498db;
+  color: #fff;
+}
+
+/* Styling for disabled pagination link */
+.page-item.disabled .page-link {
+  background-color: #f2f2f2;
+  border-color: #ccc;
+  color: #ccc;
+  cursor: default;
+}
+
+/* Optional: Add hover effect to pagination links */
+.page-link:hover {
+  background-color: #ddd;
+}

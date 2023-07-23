@@ -12,6 +12,5 @@ export class AuthenticationService {
 
   setLoggedInStatus(isLoggedIn: boolean): void {
     this.isLoggedInSubject.next(isLoggedIn);
-    console.log('Logged-in status:', isLoggedIn);
   }
 }

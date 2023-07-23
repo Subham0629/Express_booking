@@ -20,7 +20,6 @@ export class FetchParticipantsComponent implements OnInit {
     // Fetch all participants
     this.movieservice.getAllParticipants().subscribe(
       (participants: any) => {
-        console.log('Fetched all participants:', participants);
 
         // Group participants by event_id
         this.groupParticipantsByEventId(participants);
@@ -54,8 +53,6 @@ export class FetchParticipantsComponent implements OnInit {
     this.participantsByEventId.forEach((participants: any[], eventId: string) => {
       this.movieservice.getEvent(eventId).subscribe(
         (event: any) => {
-          console.log(`Event details for Event ${eventId}:`, event);
-
           // Calculate the length of the user_id array for each event
           let userIds = participants.map((participant) => participant.user_id);
           event.participantsLength = userIds.length;
