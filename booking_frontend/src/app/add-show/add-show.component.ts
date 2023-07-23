@@ -45,6 +45,9 @@ export class AddShowComponent implements OnInit {
       this.movieService.addShow(this.movieId,this.timings.split(','),this.category).subscribe(
         (response: any) => {
           console.log('Show added successfully:', response);
+          alert("Show added successfully")
+          this.timings='';
+          this.category=''
           // Handle success scenario (e.g., show a success message)
         },
         (error: any) => {

@@ -31,6 +31,7 @@ export class AddEventComponent {
       (response: any) => {
         console.log('Event added successfully:', response);
         // Redirect to Admin Dashboard after adding the event
+        alert("Event added successfully")
         this.router.navigate(['/admindashboard']);
       },
       (error: any) => {

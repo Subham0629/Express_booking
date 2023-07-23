@@ -19,7 +19,7 @@ export class MovieFormComponent {
   constructor(private http: HttpClient, private router: Router) { }
 
   onSubmit() {
-    this.http.post('http://localhost:5000/movies', this.movie)
+    this.http.post('https://express-booking.onrender.com/movies', this.movie)
       .subscribe(
         (response: any) => {
           console.log('Movie added successfully:', response);

@@ -35,7 +35,7 @@ export class UserRegistrationComponent {
   }
 
   register() {
-    this.http.post('http://localhost:5000/users', this.user)
+    this.http.post('https://express-booking.onrender.com/users', this.user)
       .subscribe(
         (response: any) => {
           alert("Registration successful")
@@ -61,7 +61,7 @@ export class UserRegistrationComponent {
   }
 
   loginsubmit() {
-    this.http.post('http://localhost:5000/login_user', this.login)
+    this.http.post('https://express-booking.onrender.com/login_user', this.login)
       .subscribe(
         (response: any) => {
           if (response.message=='Login successful!'){
@@ -89,7 +89,7 @@ export class UserRegistrationComponent {
   }
 
   updateProfile() {
-    this.http.put(`http://localhost:5000/users/${localStorage.getItem("express_user")}`, this.user)
+    this.http.put(`https://express-booking.onrender.com/users/${localStorage.getItem("express_user")}`, this.user)
       .subscribe(
         (response: any) => {
           console.log('Profile update successful:', response);

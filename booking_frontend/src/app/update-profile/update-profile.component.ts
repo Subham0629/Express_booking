@@ -23,23 +23,12 @@ export class UpdateProfileComponent {
 
   getUserDetails(): void {
     localStorage.getItem('express_user')
-    // Retrieve user details using a GET request
-    // this.http.get(`http://localhost:5000/users/${localStorage.getItem('express_user')}`)
-    //   .subscribe(
-    //     (response: any) => {
-    //       this.user = response;
-    //     },
-    //     (error: any) => {
-    //       console.error('Failed to fetch user details:', error);
-    //       // Handle error scenario
-    //     }
-    //   );
   }
 
   updateProfile(): void {
     // Perform the update operation using a PUT request
     console.log(typeof(localStorage.getItem('express_user')))
-    this.http.put(`http://localhost:5000/users/${String(localStorage.getItem('express_user'))}`, this.user)
+    this.http.put(`https://express-booking.onrender.com/users/${String(localStorage.getItem('express_user'))}`, this.user)
       .subscribe(
         (response: any) => {
           alert("Profile updated successfully")

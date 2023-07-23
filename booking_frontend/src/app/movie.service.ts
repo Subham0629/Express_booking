@@ -8,9 +8,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class MovieService {
-  private apiUrl = 'http://localhost:5000/movies';
-  private showUrl = 'http://localhost:5000';
-  private eventUrl="http://localhost:5000/events";
+  private apiUrl = 'https://express-booking.onrender.com/movies';
+  private showUrl = 'https://express-booking.onrender.com';
+  private eventUrl="https://express-booking.onrender.com/events";
 
   constructor(private http: HttpClient) {}
 
