@@ -1,10 +1,11 @@
+<app-slider></app-slider>
 <div class="event-container">
     <div *ngFor="let event of events" class="event-box">
         <div class="first">
       <img [src]="event.image" alt="Event Image">
     </div>
     <div class="second">
-        <h6>{{ event.title }}</h6>
+        <h3>{{ event.title }}</h3>
       <p>City: {{ event.city }}</p>
       <p>Date: {{ event.date }}</p>
       <p>Price: {{ event.price }}</p>

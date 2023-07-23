@@ -29,9 +29,22 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['/signup']);
   }
 
+  isuserLogged(): boolean {
+    // Check if the user is logged in by verifying the presence of a value in localStorage
+    const userToken = localStorage.getItem('express_user');
+    return userToken !== null && userToken !== undefined;
+  }
+
   logout(): void {
     localStorage.removeItem('express_user');
-    this.authService.setLoggedInStatus(false);
-    this.router.navigate(['/movies']);
+    localStorage.removeItem('adminToken');
+    if (confirm('Are you sure you want to log out?')) {
+      this.authService.setLoggedInStatus(false);
+      this.router.navigate(['/movies']);
+    }else{
+      this.authService.setLoggedInStatus(true);
+    }
+    
+    
   }
 }

@@ -21,6 +21,12 @@ import { EventListComponent } from './event-list/event-list.component';
 import { AddEventComponent } from './add-event/add-event.component';
 import { FetchParticipantsComponent } from './fetch-participants/fetch-participants.component';
 import { FetchEventsComponent } from './fetch-events/fetch-events.component';
+import { MatSliderModule } from '@angular/material/slider';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SliderComponent } from './slider-component/slider-component.component';
+import { FetchAllUsersComponent } from './fetch-all-users/fetch-all-users.component';
+import { FooterComponent } from './footer/footer.component';
+
 
 @NgModule({
   declarations: [
@@ -36,14 +42,19 @@ import { FetchEventsComponent } from './fetch-events/fetch-events.component';
     EventListComponent,
     AddEventComponent,
     FetchParticipantsComponent,
-    FetchEventsComponent
+    FetchEventsComponent,
+    SliderComponent,
+    FetchAllUsersComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    CommonModule  
+    CommonModule,
+    MatSliderModule,
+    BrowserAnimationsModule  
   ],
   providers: [AuthenticationService,MovieService],
   bootstrap: [AppComponent]

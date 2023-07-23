@@ -1,0 +1,52 @@
+<div class="container">
+    <h2>All Users</h2>
+    <h6>Total Users: {{filteredUsers.length}}</h6>
+    <div class="filter-container">
+        <label for="membershipFilter">Filter by Membership:</label>
+        <select id="membershipFilter" [(ngModel)]="selectedMembership" (change)="applyFilter()">
+          <option value="">All</option>
+          <option value="Regular">Regular</option>
+          <option value="Premium">Premium</option>
+          <option value="VIP">VIP</option>
+        </select>
+      </div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Username</th>
+          <th>Email</th>
+          <th>Date of Birth</th>
+          <th>Gender</th>
+          <th>Membership</th>
+          <th>User Status</th>
+          <th>Delete User</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of filteredUsers; let i = index">
+          <td>{{ user.username }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.dateOfBirth }}</td>
+          <td>{{ user.gender }}</td>
+          <td>{{ user.membership }}</td>
+          <td>{{ (user.user_status)? "Active":"Not active" }}</td>
+          <td><button class="btn btn-danger" (click)="deleteUser(user._id)">Delete</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  
+<div class="pagination-container">
+    <ul class="pagination">
+      <li class="page-item" [ngClass]="{ 'disabled': currentPage === 1 }">
+        <a class="page-link" (click)="onPageChange(currentPage - 1)">Previous</a>
+      </li>
+      <li class="page-item" *ngFor="let page of getPagesArray()" [ngClass]="{ 'active': currentPage === page }">
+        <a class="page-link" (click)="onPageChange(page)">{{ page }}</a>
+      </li>
+      <li class="page-item" [ngClass]="{ 'disabled': currentPage === totalItems }">
+        <a class="page-link" (click)="onPageChange(currentPage + 1)">Next</a>
+      </li>
+    </ul>
+  </div>

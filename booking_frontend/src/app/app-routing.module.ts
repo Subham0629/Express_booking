@@ -12,6 +12,7 @@ import { EventListComponent } from './event-list/event-list.component';
 import { AddEventComponent } from './add-event/add-event.component';
 import { FetchParticipantsComponent } from './fetch-participants/fetch-participants.component';
 import { FetchEventsComponent } from './fetch-events/fetch-events.component';
+import { FetchAllUsersComponent } from './fetch-all-users/fetch-all-users.component';
 
 
 const routes: Routes = [
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'admin/add-event', component: AddEventComponent , canActivate: [AuthGuard]},
   { path: 'admin/fetch-participants', component: FetchParticipantsComponent , canActivate: [AuthGuard]},
   { path: 'admin/fetch-events', component: FetchEventsComponent , canActivate: [AuthGuard]},
+  { path: 'fetch-all-users', component: FetchAllUsersComponent, canActivate: [AuthGuard]},
   { path: 'movies', component: MovieComponent },
   { path: 'user-login', component: UserRegistrationComponent },
   { path: 'events', component: EventListComponent },

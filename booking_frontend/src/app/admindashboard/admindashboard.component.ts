@@ -29,13 +29,24 @@ export class AdmindashboardComponent implements OnInit {
   fetchAllMovies() {
     this.movieService.getAllMovies().subscribe(
       (movies: any) => {
-        console.log('Fetched all movies:', movies);
         this.movies = movies; // Store fetched movies in 'movies' property
         this.moviesFetched = true;
       },
       (error: any) => {
         console.error('Error fetching movies:', error);
         // Handle error scenarios
+      }
+    );
+  }
+  deleteMovie(movieId: string): void {
+    this.movieService.deleteMovie(movieId).subscribe(
+      () => {
+        console.log(`Movie with ID ${movieId} deleted successfully.`);
+        // Refresh the list of movies after deletion
+        this.fetchAllMovies();
+      },
+      (error: any) => {
+        console.error(`Error deleting movie with ID ${movieId}:`, error);
       }
     );
   }

@@ -1,0 +1,13 @@
+<div class="slider-container">
+    <div class="slider" #slider>
+      <div class="slide" *ngFor="let slide of slides">
+        <img [src]="slide" alt="Slide">
+      </div>
+    </div>
+    
+    <div class="slider-nav">
+      <button (click)="prevSlide()">Previous</button>
+      <button (click)="nextSlide()">Next</button>
+    </div>
+  </div>
+  

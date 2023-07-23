@@ -1,8 +1,8 @@
 <div class="user-registration-form">
-    <h2>User Registration</h2>
   
     <!-- Signup form -->
     <form *ngIf="showSignupForm && !showUpdateForm" (ngSubmit)="register()">
+      <h2>User Registration</h2>
       <div class="form-group">
         <label for="username">Username</label>
         <input type="text" class="form-control" id="username" [(ngModel)]="user.username" name="username" required>
@@ -55,6 +55,7 @@
   
     <!-- Login form -->
     <form *ngIf="!showSignupForm && !showUpdateForm" (ngSubmit)="loginsubmit()">
+      <h2>User Login</h2>
       <div class="form-group">
         <label for="loginEmail">Email</label>
         <input type="email" class="form-control" id="loginEmail" [(ngModel)]="login.email" name="loginEmail" required>
