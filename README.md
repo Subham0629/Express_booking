@@ -5,7 +5,7 @@ A brief introduction of your project goes here. You may want to cover the purpos
 The purpose of this project is to provide users with a platform to browse and book tickets for various events, movies entertainment activities happening in their city.
 
 ## Deplolyed App
-
+https://express-booking-rust.vercel.app/
 
 ## Video Walkthrough of the project
 
