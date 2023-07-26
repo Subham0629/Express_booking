@@ -1,7 +1,6 @@
 # Express_Booking
 
 ## Introduction
-A brief introduction of your project goes here. You may want to cover the purpose of your project, its core functionality, and what problems it solves.
 The purpose of this project is to provide users with a platform to browse and book tickets for various events, movies entertainment activities happening in their city.
 
 ## Deplolyed App
